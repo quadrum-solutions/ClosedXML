@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ClosedXML.IO;
 using ClosedXML.Utils;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
@@ -541,7 +542,7 @@ internal class PivotTableDefinitionPartReader
                 // Axis can contain 'data' field.
                 var fieldIndex = field.Index?.Value ?? throw PartStructureException.MissingAttribute();
                 if (fieldIndex >= xlPivotTable.PivotFields.Count || (fieldIndex < 0 && fieldIndex != ValuesFieldIndex))
-                    throw PartStructureException.IncorrectAttributeValue();
+                    throw PartStructureException.InvalidAttributeValue();
 
                 axis.AddField(fieldIndex);
             }
