@@ -30,6 +30,11 @@ internal class SchemeTypeMap
         return this;
     }
 
+    internal SchemeTypeMap AddSimpleTypeEnum(string simpleType, string csTypeName, string xmlValue, string csValue)
+    {
+        return AddSimpleTypeEnum(simpleType, csTypeName, new() { { xmlValue, csValue } });
+    }
+
     internal SchemeTypeMap AddSimpleTypeEnum(string simpleType, string csTypeName, Dictionary<string, string>? valuesMap = null)
     {
         return AddSimpleType(new SimpleTypeMapping
@@ -96,6 +101,13 @@ internal class SchemeTypeMap
             CsTypeName = "string",
             RequiredTemplate = "_reader.GetXString(\"{0}\")",
             OptionalTemplate = "_reader.GetOptionalXString(\"{0}\")"
+        });
+        AddSimpleType(new SimpleTypeMapping
+        {
+            Name = "xsd:string",
+            CsTypeName = "string",
+            RequiredTemplate = "_reader.GetString(\"{0}\")",
+            OptionalTemplate = "_reader.GetOptionalString(\"{0}\")"
         });
         AddSimpleType(new SimpleTypeMapping
         {
