@@ -29,6 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ClosedXML.IO\ClosedXML.IO.csproj" />
     <ProjectReference Include="..\ClosedXML\ClosedXML.csproj" />
     <ProjectReference Include="..\ClosedXML.Examples\ClosedXML.Examples.csproj" />
   </ItemGroup>
