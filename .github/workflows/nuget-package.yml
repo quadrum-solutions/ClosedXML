@@ -33,7 +33,4 @@ jobs:
       - name: Push package to NuGet
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        run: |
-          cd ClosedXML
-          dotnet nuget push "*.nupkg" --source https://api.nuget.org/v3/index.json --api-key $NUGET_API_KEY
-          echo "Package pushed to NuGet successfully."
+        run: dotnet nuget push "*.nupkg" --source https://api.nuget.org/v3/index.json --api-key $NUGET_API_KEY
