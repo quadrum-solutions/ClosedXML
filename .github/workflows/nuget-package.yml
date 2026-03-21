@@ -27,8 +27,11 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build and Pack
-        run: dotnet pack ClosedXML --configuration Release --output .
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Pack
+        run: dotnet pack ClosedXML --configuration Release --no-build --output .
 
       - name: Push package to NuGet
         env:
