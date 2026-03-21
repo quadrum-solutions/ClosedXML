@@ -27,11 +27,8 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
 
-      - name: Build
-        run: dotnet build --no-restore --configuration Release
-        
-      - name: Pack
-        run: dotnet pack --configuration Release --no-build --output .
+      - name: Build and Pack
+        run: dotnet pack --configuration Release --output .
 
       - name: Push package to NuGet
         env:
